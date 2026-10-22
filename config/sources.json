@@ -1,0 +1,18 @@
+{
+  "Region": "ontario",
+  "Adzuna": {
+    "Terms": [
+      ".net developer",
+      "c# developer",
+      "full stack developer",
+      "senior software engineer",
+      "software engineer",
+      "tech lead",
+      "engineering manager"
+    ],
+    "ResultsPerPage": 50,
+    "MaxPages": 4,
+    "MaxCallsPerRun": 80,
+    "MinDelayMs": 3000
+  }
+}

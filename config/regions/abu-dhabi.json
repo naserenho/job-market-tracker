@@ -1,0 +1,222 @@
+// Abu Dhabi emirate (Abu Dhabi city, its districts and Al Ain), plus remote roles open to the UAE.
+// See README "Regions" and ADR 0015, and config/regions/toronto.json for the meaning of each section.
+// - Adzuna has no UAE market and Job Bank is Canadian, so neither section is here: both sources are skipped.
+// - Boards: public Greenhouse/Lever/Ashby boards that listed UAE jobs when this file was written (2026-10-03).
+//   Many list Dubai roles, which count only when remote. Add boards of companies hiring in Abu Dhabi as you find them.
+// - Pay in the UAE is usually stated per month: monthly AED ranges count as salary (12 x monthly = yearly).
+// Few public boards list Abu Dhabi jobs: paste postings from LinkedIn, Bayt or GulfTalent into the tracker; they are
+// this region's main source.
+{
+  "Name": "abu-dhabi",
+  "Title": "Abu Dhabi Job Market",
+  "LocalLabel": "Abu Dhabi",
+  "RemoteLabel": "Remote (UAE)",
+  "CountryCode": "AE",
+  "CountryNames": [
+    "United Arab Emirates",
+    "UAE",
+    "AE"
+  ],
+  "Culture": "en-AE",
+  "TimeZone": "Asia/Dubai",
+  "InCountry": {
+    "Words": [
+      "united arab emirates",
+      "uae",
+      "u\\.a\\.e\\.?",
+      "emirates",
+      "abu dhabi",
+      "dubai",
+      "sharjah",
+      "ajman",
+      "umm al[ -]quwain",
+      "ras al[ -]khaimah",
+      "fujairah"
+    ],
+    "Codes": []
+  },
+  "Foreign": {
+    "Words": [
+      "saudi arabia",
+      "ksa",
+      "riyadh",
+      "jeddah",
+      "dammam",
+      "qatar",
+      "doha",
+      "bahrain",
+      "manama",
+      "oman",
+      "muscat",
+      "kuwait",
+      "egypt",
+      "cairo",
+      "india",
+      "pakistan",
+      "usa",
+      "united states",
+      "uk",
+      "united kingdom"
+    ],
+    "Codes": []
+  },
+  "Local": {
+    "Places": {
+      "Abu Dhabi": "Abu Dhabi",
+      "Khalifa City": "Abu Dhabi",
+      "Mohammed Bin Zayed City": "Abu Dhabi",
+      "MBZ City": "Abu Dhabi",
+      "Masdar City": "Abu Dhabi",
+      "Masdar": "Abu Dhabi",
+      "Yas Island": "Abu Dhabi",
+      "Saadiyat Island": "Abu Dhabi",
+      "Al Reem Island": "Abu Dhabi",
+      "Reem Island": "Abu Dhabi",
+      "Al Maryah Island": "Abu Dhabi",
+      "ADGM": "Abu Dhabi",
+      "Mussafah": "Abu Dhabi",
+      "Musaffah": "Abu Dhabi",
+      "Al Raha": "Abu Dhabi",
+      "Al Ain": "Al Ain"
+    },
+    "NeedsCountryContext": [
+      "Al Ain"
+    ]
+  },
+  "Salary": {
+    "Currency": "AED",
+    "MoneyPrefix": "AED ",
+    "Signs": [
+      "Dhs",
+      "Dh"
+    ],
+    "ShortMarks": [
+      "Dhs"
+    ],
+    "ForeignCurrencies": [
+      "USD",
+      "SAR",
+      "QAR"
+    ],
+    "ForeignSigns": [
+      "US$"
+    ],
+    "ForeignShortMarks": [],
+    "BareDollar": "foreign",
+    "CodeAfterAmount": true,
+    "MonthlyIsSalary": true,
+    "ContextWords": [
+      "uae",
+      "united arab emirates",
+      "abu dhabi",
+      "dubai",
+      "aed",
+      "dirhams?"
+    ],
+    "ForeignContextWords": [
+      "saudi",
+      "riyadh",
+      "jeddah",
+      "qatar",
+      "doha",
+      "bahrain",
+      "kuwait",
+      "oman",
+      "egypt",
+      "united states",
+      "usa"
+    ],
+    "ForeignContextCodes": [
+      "KSA"
+    ],
+    "YearlyMin": 60000,
+    "YearlyMax": 3000000
+  },
+  "CitizenshipPatterns": [
+    "uae nationals? only",
+    "uae national",
+    "emiratis? only",
+    "emirati nationals?",
+    "emiratisation",
+    "emiratization",
+    "security clearance"
+  ],
+  "Boards": [
+    {
+      "Ats": "greenhouse",
+      "Slug": "careem"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "deliveroo"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "deliveroo"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "tamara"
+    },
+    {
+      "Ats": "lever",
+      "Slug": "binance"
+    },
+    {
+      "Ats": "lever",
+      "Slug": "crypto"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "okx"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "ziina"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "snowflake"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "cohere"
+    },
+    {
+      "Ats": "lever",
+      "Slug": "fresha"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "leantech"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "mongodb"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "elastic"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "gitlab"
+    }
+  ],
+  "CompanyNames": {
+    "careem": "Careem",
+    "deliveroo": "Deliveroo",
+    "tamara": "Tamara",
+    "binance": "Binance",
+    "crypto": "Crypto.com",
+    "okx": "OKX",
+    "ziina": "Ziina",
+    "snowflake": "Snowflake",
+    "cohere": "Cohere",
+    "fresha": "Fresha",
+    "leantech": "Lean Technologies",
+    "mongodb": "MongoDB",
+    "elastic": "Elastic",
+    "gitlab": "GitLab"
+  }
+}

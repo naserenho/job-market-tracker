@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Api/Api.csproj" />
+    <Project Path="src/AppHost/AppHost.csproj" />
+    <Project Path="src/Archiver/Archiver.csproj" />
+    <Project Path="src/Processor/Processor.csproj" />
+    <Project Path="src/ServiceDefaults/ServiceDefaults.csproj" />
+    <Project Path="src/Tracker.Core/Tracker.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Api.Tests/Api.Tests.csproj" />
+    <Project Path="tests/Archiver.Tests/Archiver.Tests.csproj" />
+    <Project Path="tests/Processor.Tests/Processor.Tests.csproj" />
+    <Project Path="tests/Tracker.Core.Tests/Tracker.Core.Tests.csproj" />
+    <Project Path="tests/Tracker.TestSupport/Tracker.TestSupport.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,587 @@
+// All of Ontario, plus remote roles open to Canada. See README "Regions" and ADRs 0015 and 0016.
+// - "Words" and "Patterns" entries are regular-expression fragments matched as whole words (plain words work as written;
+//   escape a literal dot as \.). "Codes", "Signs" and "Marks" are literal text.
+// - Local.Places: a place name as written in postings, and the place shown for it in reports.
+// - Local.Anywhere: any location segment with these words or codes is local, even a town Places doesn't list; Exclude
+//   rules out the US Ontarios (California, Oregon, New York); Areas groups the places shown for "Where the jobs are".
+// - Salary: how pay is written here. YearlyMin/YearlyMax: plausible yearly pay in the home currency.
+// - Adzuna and JobBank are optional: leave a section out and that source is skipped for this region. Adzuna has no
+//   DistanceKm, so it searches the whole province; JobBank reads every Ontario economic region.
+{
+  "Name": "ontario",
+  "Title": "Ontario Job Market",
+  "LocalLabel": "Ontario",
+  "RemoteLabel": "Remote (Canada)",
+  "CountryCode": "CA",
+  "CountryNames": [
+    "Canada",
+    "CA"
+  ],
+  "Culture": "en-CA",
+  "TimeZone": "America/Toronto",
+  "InCountry": {
+    "Words": [
+      "canada",
+      "canadian",
+      "ontario",
+      "british columbia",
+      "alberta",
+      "quebec",
+      "québec",
+      "nova scotia",
+      "manitoba",
+      "saskatchewan",
+      "new brunswick",
+      "newfoundland",
+      "prince edward island"
+    ],
+    "Codes": [
+      "ON",
+      "BC",
+      "AB",
+      "QC",
+      "NS",
+      "MB",
+      "NB"
+    ]
+  },
+  "Foreign": {
+    "Words": [
+      "USA",
+      "U\\.S\\.A?\\.?",
+      "United States",
+      "UK",
+      "U\\.K\\.",
+      "United Kingdom",
+      "England",
+      "Scotland",
+      "Wales",
+      "Ireland",
+      "Australia",
+      "New Zealand",
+      "India"
+    ],
+    "Codes": [
+      "AL",
+      "AK",
+      "AZ",
+      "AR",
+      "CA",
+      "CO",
+      "CT",
+      "DE",
+      "FL",
+      "GA",
+      "HI",
+      "ID",
+      "IL",
+      "IN",
+      "IA",
+      "KS",
+      "KY",
+      "LA",
+      "ME",
+      "MD",
+      "MA",
+      "MI",
+      "MN",
+      "MS",
+      "MO",
+      "MT",
+      "NE",
+      "NV",
+      "NH",
+      "NJ",
+      "NM",
+      "NY",
+      "NC",
+      "ND",
+      "OH",
+      "OK",
+      "OR",
+      "PA",
+      "RI",
+      "SC",
+      "SD",
+      "TN",
+      "TX",
+      "UT",
+      "VT",
+      "VA",
+      "WA",
+      "WV",
+      "WI",
+      "WY",
+      "DC"
+    ]
+  },
+  "Local": {
+    "Places": {
+      "Toronto": "Toronto",
+      "Etobicoke": "Toronto",
+      "Scarborough": "Toronto",
+      "North York": "Toronto",
+      "East York": "Toronto",
+      "Greater Toronto Area": "Toronto",
+      "GTA": "Toronto",
+      "Mississauga": "Mississauga",
+      "Brampton": "Brampton",
+      "Caledon": "Caledon",
+      "Peel region": "Peel Region",
+      "Markham": "Markham",
+      "Unionville": "Markham",
+      "Thornhill": "Markham",
+      "Vaughan": "Vaughan",
+      "Woodbridge": "Vaughan",
+      "Concord": "Vaughan",
+      "Richmond Hill": "Richmond Hill",
+      "Newmarket": "Newmarket",
+      "Aurora": "Aurora",
+      "Stouffville": "Whitchurch-Stouffville",
+      "King City": "King",
+      "York region": "York Region",
+      "Oakville": "Oakville",
+      "Burlington": "Burlington",
+      "Milton": "Milton",
+      "Halton Hills": "Halton Hills",
+      "Halton region": "Halton Region",
+      "Pickering": "Pickering",
+      "Ajax": "Ajax",
+      "Whitby": "Whitby",
+      "Oshawa": "Oshawa",
+      "Clarington": "Clarington",
+      "Durham region": "Durham Region",
+      "Ottawa": "Ottawa",
+      "Kanata": "Ottawa",
+      "Nepean": "Ottawa",
+      "Orléans": "Ottawa",
+      "Orleans": "Ottawa",
+      "Gloucester": "Ottawa",
+      "Kitchener": "Kitchener",
+      "Waterloo": "Waterloo",
+      "Cambridge": "Cambridge",
+      "Guelph": "Guelph",
+      "London": "London",
+      "Hamilton": "Hamilton",
+      "Windsor": "Windsor",
+      "Kingston": "Kingston",
+      "Barrie": "Barrie",
+      "Sudbury": "Sudbury",
+      "St. Catharines": "St. Catharines",
+      "Niagara Falls": "Niagara Falls",
+      "Peterborough": "Peterborough",
+      "Brantford": "Brantford",
+      "Sarnia": "Sarnia",
+      "Thunder Bay": "Thunder Bay",
+      "Belleville": "Belleville",
+      "North Bay": "North Bay",
+      "Greater Sudbury": "Sudbury"
+    },
+    "NeedsCountryContext": [
+      "Burlington",
+      "Milton",
+      "Aurora",
+      "Newmarket",
+      "Concord",
+      "Woodbridge",
+      "Unionville",
+      "Ajax",
+      "King City",
+      "Caledon",
+      "GTA",
+      "London",
+      "Cambridge",
+      "Waterloo",
+      "Hamilton",
+      "Kingston",
+      "Windsor",
+      "Ottawa",
+      "Peterborough",
+      "Gloucester",
+      "Belleville",
+      "Brantford",
+      "Orleans",
+      "Orléans",
+      "Niagara Falls",
+      "Sudbury",
+      "Richmond Hill"
+    ],
+    "Anywhere": {
+      "Words": [
+        "ontario"
+      ],
+      "Codes": [
+        "ON"
+      ]
+    },
+    "Exclude": [
+      "(?<![\\w,]\\s*)ontario,\\s*(?:ca|calif|california|or|oregon|ny|new york|oh|ohio)(?!.*\\bcanada\\b)",
+      "ontario county"
+    ],
+    "Areas": {
+      "Toronto": "Toronto area (GTA)",
+      "Mississauga": "Toronto area (GTA)",
+      "Brampton": "Toronto area (GTA)",
+      "Caledon": "Toronto area (GTA)",
+      "Peel Region": "Toronto area (GTA)",
+      "Markham": "Toronto area (GTA)",
+      "Vaughan": "Toronto area (GTA)",
+      "Richmond Hill": "Toronto area (GTA)",
+      "Newmarket": "Toronto area (GTA)",
+      "Aurora": "Toronto area (GTA)",
+      "Whitchurch-Stouffville": "Toronto area (GTA)",
+      "King": "Toronto area (GTA)",
+      "York Region": "Toronto area (GTA)",
+      "Oakville": "Toronto area (GTA)",
+      "Burlington": "Toronto area (GTA)",
+      "Milton": "Toronto area (GTA)",
+      "Halton Hills": "Toronto area (GTA)",
+      "Halton Region": "Toronto area (GTA)",
+      "Pickering": "Toronto area (GTA)",
+      "Ajax": "Toronto area (GTA)",
+      "Whitby": "Toronto area (GTA)",
+      "Oshawa": "Toronto area (GTA)",
+      "Clarington": "Toronto area (GTA)",
+      "Durham Region": "Toronto area (GTA)",
+      "Hamilton": "Hamilton",
+      "Kitchener": "Kitchener-Waterloo",
+      "Waterloo": "Kitchener-Waterloo",
+      "Cambridge": "Kitchener-Waterloo",
+      "Guelph": "Kitchener-Waterloo",
+      "London": "London",
+      "Ottawa": "Ottawa"
+    }
+  },
+  "Salary": {
+    "Currency": "CAD",
+    "MoneyPrefix": "$",
+    "Signs": [
+      "CA$",
+      "C$"
+    ],
+    "ShortMarks": [
+      "CA"
+    ],
+    "ForeignCurrencies": [
+      "USD"
+    ],
+    "ForeignSigns": [
+      "US$"
+    ],
+    "ForeignShortMarks": [
+      "US"
+    ],
+    "BareDollar": "ambiguous",
+    "CodeAfterAmount": false,
+    "MonthlyIsSalary": false,
+    "ContextWords": [
+      "canada",
+      "canadian",
+      "toronto",
+      "ontario",
+      "vancouver",
+      "montreal",
+      "cad",
+      "ottawa",
+      "waterloo",
+      "kitchener",
+      "london,? ontario",
+      "hamilton"
+    ],
+    "ForeignContextWords": [
+      "united states",
+      "u\\.s\\.",
+      "usa",
+      "us-based",
+      "us base",
+      "new york",
+      "nyc",
+      "san francisco",
+      "bay area",
+      "california",
+      "seattle",
+      "washington",
+      "colorado",
+      "texas",
+      "massachusetts",
+      "boston",
+      "chicago",
+      "austin"
+    ],
+    "ForeignContextCodes": [
+      "US",
+      "SF"
+    ],
+    "YearlyMin": 30000,
+    "YearlyMax": 500000
+  },
+  "CitizenshipPatterns": [
+    "canadian citizen(?:ship)?",
+    "citizens? of canada",
+    "security clearance",
+    "secret clearance",
+    "top secret",
+    "enhanced reliability",
+    "reliability (?:status|clearance)",
+    "nato secret"
+  ],
+  "Adzuna": {
+    "Country": "ca",
+    "Where": "Ontario"
+  },
+  "Boards": [
+    {
+      "Ats": "greenhouse",
+      "Slug": "ada18"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "affirm"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "brex"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "coinbase"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "d2l"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "databricks"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "dropbox"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "faire"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "flipp"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "geotab"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "instacart"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "lyft"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "okta"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "pinterest"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "reddit"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "robinhood"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "samsara"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "stripe"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "tailscale"
+    },
+    {
+      "Ats": "greenhouse",
+      "Slug": "twilio"
+    },
+    {
+      "Ats": "lever",
+      "Slug": "achievers"
+    },
+    {
+      "Ats": "lever",
+      "Slug": "pointclickcare"
+    },
+    {
+      "Ats": "lever",
+      "Slug": "wattpad"
+    },
+    {
+      "Ats": "lever",
+      "Slug": "waveapps"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "1password"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "benevity"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "clearco"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "cohere"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "float"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "hopper"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "jobber"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "klue"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "loopio"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "miovision"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "neofinancial"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "ramp"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "snowflake"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "trulioo"
+    },
+    {
+      "Ats": "ashby",
+      "Slug": "wealthsimple"
+    }
+,
+    {
+      "Ats": "greenhouse",
+      "Slug": "digitalextremes"
+    },
+    {
+      "Ats": "lever",
+      "Slug": "fullscript"
+    },
+    {
+      "Ats": "lever",
+      "Slug": "magnetforensics"
+    },
+    {
+      "Ats": "workable",
+      "Slug": "march-networks"
+    },
+    {
+      "Ats": "workable",
+      "Slug": "fidus"
+    },
+    {
+      "Ats": "workable",
+      "Slug": "49-solutions-1"
+    },
+    {
+      "Ats": "workable",
+      "Slug": "unblu"
+    },
+    {
+      "Ats": "workable",
+      "Slug": "assistiq"
+    },
+    {
+      "Ats": "smartrecruiters",
+      "Slug": "GDMSI"
+    },
+    {
+      "Ats": "smartrecruiters",
+      "Slug": "ADGAGroupConsultantsInc1"
+    },
+    {
+      "Ats": "smartrecruiters",
+      "Slug": "assent"
+    },
+    {
+      "Ats": "smartrecruiters",
+      "Slug": "KuatroTechnologiesInc"
+    },
+    {
+      "Ats": "smartrecruiters",
+      "Slug": "SATechnologiesInc4"
+    }
+  ],
+  "CompanyNames": {
+    "1password": "1Password",
+    "ada18": "Ada",
+    "d2l": "D2L",
+    "neofinancial": "Neo Financial",
+    "pointclickcare": "PointClickCare",
+    "waveapps": "Wave",
+    "achievers": "Achievers",
+    "wattpad": "Wattpad",
+    "benevity": "Benevity",
+    "clearco": "Clearco",
+    "cohere": "Cohere",
+    "float": "Float",
+    "hopper": "Hopper",
+    "jobber": "Jobber",
+    "klue": "Klue",
+    "loopio": "Loopio",
+    "miovision": "Miovision",
+    "ramp": "Ramp",
+    "snowflake": "Snowflake",
+    "trulioo": "Trulioo",
+    "wealthsimple": "Wealthsimple",
+    "digitalextremes": "Digital Extremes",
+    "fullscript": "Fullscript",
+    "magnetforensics": "Magnet Forensics"
+  },
+  "JobBank": {
+    "DatasetId": "ea639e28-c0fc-48bf-b5dd-b8899bd43072",
+    "BackfillMonths": 12,
+    "Province": "Ontario",
+    "NocCodes": {
+      "21230": "Computer systems developers and programmers",
+      "21231": "Software engineers and designers",
+      "21232": "Software developers and programmers",
+      "21234": "Web developers and programmers",
+      "21211": "Data scientists",
+      "21220": "Cybersecurity specialists",
+      "21221": "Business systems specialists",
+      "21222": "Information systems specialists",
+      "21223": "Database analysts and data administrators",
+      "21311": "Computer engineers",
+      "20012": "Computer and information systems managers"
+    }
+  }
+}

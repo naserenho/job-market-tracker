@@ -1,0 +1,86 @@
+// The master CV the Tailor CV page selects from. Copy this file to config/cv.json (gitignored) and replace everything
+// with your own, true details. The tool only picks and orders what you write here; it never adds a claim.
+//
+// - ids: any unique text. Saved CVs point at them, so keep a bullet's id when you reword it.
+// - skills: optional tags, spelled exactly as a "name" in config/skills.json. Skills named in the text are found anyway.
+// - summaries: the Tailor page suggests the first one whose families include the posting title's family
+//   (dotnet, fullstack, software_engineer, lead_manager or other).
+// - roles: newest first. start and end are year-month ("2023-10"); "end": null means current. maxBullets defaults to 5.
+// - always: true keeps a bullet on every tailored CV.
+{
+  "person": {
+    "name": "Alex Example",
+    "location": "Toronto, ON",
+    "status": "Canadian Permanent Resident",
+    "phone": "+1 416 555 0100",
+    "email": "alex@example.com",
+    "links": [
+      { "label": "GitHub", "url": "https://github.com/alex-example" },
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/alex-example" }
+    ]
+  },
+  "headline": "Senior Full Stack .NET Developer",
+  "summaries": [
+    {
+      "id": "dotnet",
+      "families": ["dotnet", "fullstack", "software_engineer"],
+      "text": "Full stack developer with nine years of C# and .NET, building business systems end to end: APIs, React front ends, SQL Server and the pipelines that ship them."
+    },
+    {
+      "id": "lead",
+      "families": ["lead_manager"],
+      "text": "Hands-on technical lead who plans the work, reviews the code and still ships features, with nine years of .NET and a record of setting up CI/CD from scratch."
+    }
+  ],
+  "skillGroups": [
+    { "name": "Backend", "items": [
+      { "text": "C# / .NET 8-10", "skills": ["C#", ".NET"] },
+      { "text": "ASP.NET Core Web API" },
+      { "text": "Entity Framework Core", "skills": ["Entity Framework"] }
+    ] },
+    { "name": "Frontend", "items": [ { "text": "React, Next.js" }, { "text": "TypeScript" } ] },
+    { "name": "Cloud and DevOps", "items": [
+      { "text": "Azure App Service, Azure Functions" },
+      { "text": "Azure DevOps pipelines", "skills": ["CI/CD"] },
+      { "text": "Docker" }
+    ] },
+    { "name": "Data", "items": [ { "text": "SQL Server" }, { "text": "PostgreSQL" } ] }
+  ],
+  "roles": [
+    {
+      "id": "acme", "title": "Senior Developer", "company": "Acme Corp", "location": "Toronto, ON",
+      "start": "2023-10", "end": null, "maxBullets": 4,
+      "bullets": [
+        { "id": "acme-lead", "text": "Led a four-person team building a contract management system in .NET and Next.js.", "skills": ["Technical Leadership"], "always": true },
+        { "id": "acme-cicd", "text": "Set up Azure DevOps CI/CD pipelines that cut a release from a day to an hour." },
+        { "id": "acme-sql", "text": "Tuned SQL Server queries and indexes, halving report load times.", "skills": ["Performance Optimization"] },
+        { "id": "acme-docker", "text": "Ran internal tools on Docker Compose for a 50-person office." },
+        { "id": "acme-mentor", "text": "Mentored two junior developers through code reviews and pairing.", "skills": ["Mentoring", "Code Review"] }
+      ]
+    },
+    {
+      "id": "globex", "title": "Software Developer", "company": "Globex", "location": "Ottawa, ON",
+      "start": "2016-06", "end": "2023-09", "maxBullets": 3,
+      "bullets": [
+        { "id": "globex-api", "text": "Built REST APIs in ASP.NET for an assessment platform used by 40 universities.", "skills": ["REST APIs"] },
+        { "id": "globex-react", "text": "Rebuilt the exam dashboard in React and TypeScript." },
+        { "id": "globex-wpf", "text": "Wrote a WPF desktop tool that reads scanned answer sheets." },
+        { "id": "globex-import", "text": "Wrote data importers that cut client onboarding from weeks to days." }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "tracker", "title": "Job Market Tracker", "start": "2026-09",
+      "bullets": [
+        { "id": "tracker-aspire", "text": "Built a .NET 10 and React dashboard over PostgreSQL, run with .NET Aspire and traced with OpenTelemetry." }
+      ]
+    }
+  ],
+  "education": [
+    { "degree": "BSc Computer Engineering", "school": "Example University", "years": "2012-2016" }
+  ],
+  "certifications": [
+    { "name": "Microsoft Certified: Azure Developer Associate (AZ-204)", "year": "2026", "skills": ["Azure"] }
+  ]
+}

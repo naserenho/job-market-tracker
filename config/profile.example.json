@@ -1,0 +1,13 @@
+// Copy to config/profile.json (gitignored) and set your own levels.
+// Levels: strong | working | learning | none. Skills you leave out count as none.
+// Skill names must match "name" entries in config/skills.json exactly.
+{
+  "targetFamilies": ["dotnet", "fullstack", "software_engineer", "lead_manager"],
+  "skills": {
+    "C#": "strong",
+    ".NET": "strong",
+    "SQL Server": "working",
+    "React": "learning",
+    "Docker": "none"
+  }
+}

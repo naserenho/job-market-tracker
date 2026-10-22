@@ -1,0 +1,27 @@
+# Collected data and local secrets never go in git
+/data/
+.env
+*.env
+
+# .NET build output
+bin/
+obj/
+*.user
+.vs/
+TestResults/
+
+# Published archiver used by the scheduled task
+.artifacts/
+
+# Owner's real skill profile (config/profile.example.json shows the format)
+config/profile.json
+# Owner's real master CV (config/cv.example.json shows the format)
+config/cv.json
+
+# Dashboard dependencies and build output
+node_modules/
+/src/Dashboard/dist/
+
+# Local AI-assistant state (Claude Code worktrees, plan workspaces)
+.claude/
+.superpowers/
